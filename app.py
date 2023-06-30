@@ -19,7 +19,7 @@ mutualThresholdFemale = 30
 dailyConnectionThreshold = 15
 
 # driver
-driverPath = 'ChromeDrivers/win32/chromedriver.exe'
+driverPath = 'ChromeDrivers/linux64/chromedriver'
 
 # xpaths
 signInCheckPath = "//p[@class='main__sign-in-container']"
