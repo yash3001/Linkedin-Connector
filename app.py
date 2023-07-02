@@ -19,7 +19,11 @@ mutualThresholdFemale = 30
 dailyConnectionThreshold = 15
 
 # driver
-driverPath = 'ChromeDrivers/linux64/chromedriver'
+driverPath = ''
+if os.name == 'nt':
+    driverPath = 'ChromeDrivers/win32/chromedriver'
+else:
+    driverPath = 'ChromeDrivers/linux64/chromedriver'
 
 # xpaths
 signInCheckPath = "//p[@class='main__sign-in-container']"
@@ -68,6 +72,7 @@ def initBrowser():
     # chromeOptions.add_argument("use-fake-ui-for-media-stream")
     chromeOptions.add_argument("start-maximized")
     chromeOptions.add_argument(f"user-data-dir={curDir}\\cache")
+    chromeOptions.add_experimental_option('excludeSwitches', ['enable-logging'])
     # chromeOptions.add_experimental_option("debuggerAddress", f"localhost:{port}")
     chromeOptions.add_argument("--headless=true")
     driver = webdriver.Chrome(service=webdriver.chrome.service.Service(driverPath), options=chromeOptions)
